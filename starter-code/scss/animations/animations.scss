@@ -1,0 +1,58 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-1500%);
+  }
+}
+
+@keyframes resetToBottom {
+  from {
+    transform: translateY(800%);
+  }
+
+  to {
+    transform: translateY(-1500%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+.opening {
+  animation: fadeIn .5s ease-in-out;
+}
+.closing {
+  animation: fadeOut .5s forwards;
+}
+.hidden {
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.visible {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+

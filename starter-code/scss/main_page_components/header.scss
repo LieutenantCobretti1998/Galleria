@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5vw;
+  gap: 2vh;
+
+
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 2;
+  }
+
+  &__start-slideshow {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: normal;
+    letter-spacing: 2.57px;
+    text-align: right;
+    width: auto;
+    background: none;
+    color: $dark-grey;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  &__underline {
+    width: 100%;
+    height: .1rem;
+    background-color: $light-grey-2;
+  }
+}

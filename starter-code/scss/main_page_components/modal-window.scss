@@ -1,0 +1,164 @@
+.modal-window {
+  position: absolute;
+  animation: fadeIn .5s ease-in-out;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
+  z-index: 1000;
+
+  &__content {
+    display: flex;
+    gap: 1.5vw;
+    z-index: 1000;
+    &__image-flex {
+      min-width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__story {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15vh;
+
+      &__text {
+        color: $dark-grey;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: left;
+        line-height: 2.8rem;
+      }
+
+      &__source {
+        color: $dark-grey;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: left;
+        letter-spacing: .19rem;
+      }
+    }
+  }
+
+  .image-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+
+    &__author {
+      color: $dark-grey;
+      font-size: 2.5rem;
+    }
+
+    &__name {
+      max-width: 100%;
+      color: $black;
+      font-weight: bold;
+      font-size: 5.6rem;
+      line-height: 6.4rem;
+      text-align: left;
+    }
+  }
+}
+
+.author-image {
+  width: 5vw;
+  height: 8vh;
+}
+
+.art {
+  object-fit: cover;
+}
+
+.control-menu {
+  margin: 5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  &__close-button {
+    flex: 0 0 auto;
+    width: 2vw;
+    height: 2vh;
+    color: $black;
+    cursor: pointer;
+  }
+
+  &__leftRight {
+    display: flex;
+    flex: 1;
+    &__left,
+    &__right {
+      cursor: pointer;
+    }
+
+    & div svg {
+      width: 2vw;
+      height: 2vh;
+      color: $black;
+    }
+  }
+}
+
+.year {
+  font-size: 15rem;
+  font-weight: bold;
+  color: $light-grey-main;
+  position: absolute;
+  top: -4%;
+  left: 72%;
+
+}
+
+.image-description-overview {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1.1vh;
+  &__name,
+  &__author {
+    color: $black;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    text-align: left;
+    line-height: normal;
+    text-wrap: none;
+  }
+
+  &__author {
+    font-size: 1.5rem;
+    text-align: left;
+    line-height: normal;
+    font-weight: bold;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: .4rem;
+  animation: fadeIn .5s ease-in-out;
+  background-color: #eee;
+  position: absolute;
+  bottom: 10rem;
+
+  &__fill {
+    height: 100%;
+    background-color: $black;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+  }
+}
+
+.disabled {
+  opacity: .5;
+  pointer-events: none;
+}
