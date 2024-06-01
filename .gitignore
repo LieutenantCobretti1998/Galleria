@@ -29,3 +29,4 @@ galleria-slideshow-site-figma
 #Ignore Macos files
 __MACOSX
 
+*.map
