@@ -112,6 +112,9 @@ body {
   height: 70vh;
   position: relative;
 }
+.gallery-container__item {
+  animation: slideUp 10s linear;
+}
 .gallery-container__item > figure img {
   width: 15vw;
   height: auto;
@@ -281,6 +284,8 @@ body {
 }
 
 .art {
+  width: auto;
+  max-height: 60vh;
   object-fit: cover;
 }
 
@@ -300,13 +305,14 @@ body {
 .control-menu__leftRight {
   display: flex;
   flex: 1;
+  gap: 2rem;
 }
 .control-menu__leftRight__left, .control-menu__leftRight__right {
   cursor: pointer;
 }
 .control-menu__leftRight div svg {
   width: 2vw;
-  height: 2vh;
+  height: 3.5vh;
   color: #000000;
 }
 
@@ -359,6 +365,71 @@ body {
 .disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.view-image {
+  cursor: pointer;
+  position: absolute;
+  top: 55rem;
+  left: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+}
+.view-image__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.view-image__text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+.modal {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-container {
+  margin: 4rem;
+  width: 30%;
+}
+.modal .close-contnainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal .full-image {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+.modal .close-button {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  text-align: end;
+  padding-bottom: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  font-family: "Libre Baskerville", serif;
+  transition: color 0.5s ease-in-out;
+}
+.modal .close-button:hover {
+  color: #7D7D7D;
 }
 
 

@@ -74,6 +74,8 @@
 }
 
 .art {
+  width: auto;
+  max-height: 60vh;
   object-fit: cover;
 }
 
@@ -94,6 +96,7 @@
   &__leftRight {
     display: flex;
     flex: 1;
+    gap: 2rem;
     &__left,
     &__right {
       cursor: pointer;
@@ -101,7 +104,7 @@
 
     & div svg {
       width: 2vw;
-      height: 2vh;
+      height: 3.5vh;
       color: $black;
     }
   }
@@ -161,4 +164,27 @@
 .disabled {
   opacity: .5;
   pointer-events: none;
+}
+
+.view-image {
+  cursor: pointer;
+  position: absolute;
+  top: 55rem;
+  left: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: .2px;
+  }
 }
