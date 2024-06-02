@@ -22,6 +22,7 @@ export class AnimationManager {
         main_container.addEventListener("click", () => {
             document.querySelectorAll(".gallery-container__item").forEach(image => {
                 image.style.animationPlayState = this.paused ? "running" : "paused";
+                main_container.textContent = this.paused ? "Stop Slideshow" : "Start Slideshow";
             });
             this.paused = !this.paused;
         })

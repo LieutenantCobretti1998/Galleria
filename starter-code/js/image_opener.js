@@ -16,7 +16,7 @@ export function imagePresentation(callback) {
 }
 
 export class ShowCaseModal {
-    constructor(image_data) {
+    constructor(image_data = null) {
         this.image_data = image_data;
     }
 
@@ -24,7 +24,7 @@ export class ShowCaseModal {
         const hero_image = new Image();
         const author_image = new Image();
 
-        hero_image.src =  this.image_data.images.hero.small;
+        hero_image.src =  this.image_data.images.hero.large;
         author_image.src =  this.image_data.artist.image;
 
         return Promise.all([

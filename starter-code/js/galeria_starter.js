@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const header_slideshow_button = header.querySelector(".header__start-slideshow");
     await data_fetcher.fetchData()
         .then(data => {
-            console.log(data);
             const grid = new gridConstructor(data);
             grid.loadGridsImage();
             animation_manager.changeAnimation();
@@ -29,8 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                     });
                     const left_button = document.querySelector(".control-menu__leftRight__left");
                     const right_button = document.querySelector(".control-menu__leftRight__right");
+                    const view_image = document.querySelector(".view-image");
                     fillProgressBar(selected_id + 1, data.length);
-                    
+                    console.log(selected_image);
+
+
                     right_button.addEventListener("click", () => {
                         selected_id = (selected_id + 1) % data.length;
                         grid.loadShowCaseWindow(data[selected_id], gallery_element, header);
@@ -40,6 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                         selected_id = (selected_id - 1 + data.length) % data.length;
                         grid.loadShowCaseWindow(data[selected_id], gallery_element, header);
                         fillProgressBar(selected_id + 1, data.length);
+                    });
+                    view_image.addEventListener("click", () => {
+                        grid.openFullImage(data[selected_id]);
                     });
                 }
             });

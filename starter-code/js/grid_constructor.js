@@ -5,9 +5,11 @@ import {AnimationManager} from "./animations.js";
 
 export class gridConstructor{
     #animation
+    #image_loader
     constructor(data){
         this.data = data;
         this.#animation = new AnimationManager();
+        this.#image_loader = new ShowCaseModal();
     }
 
     loadGridsImage() {
@@ -60,6 +62,14 @@ export class gridConstructor{
                 </p>
                 <div class="modal-window__content show">
                     <img class="art" src="" alt="">
+                    <div class="view-image">
+                        <div class="view-image__icon">
+                            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="nonzero"><path d="M7.714 0l1.5 1.5-2.357 2.357 1.286 1.286L10.5 2.786l1.5 1.5V0zM3.857 6.857L1.5 9.214 0 7.714V12h4.286l-1.5-1.5 2.357-2.357zM8.143 6.857L6.857 8.143 9.214 10.5l-1.5 1.5H12V7.714l-1.5 1.5zM4.286 0H0v4.286l1.5-1.5 2.357 2.357 1.286-1.286L2.786 1.5z"/></g></svg>   
+                        </div>
+                        <p class="view-image__text">
+                            View Image
+                        </p>
+                    </div>
                     <div class="modal-window__content__image-flex">
                         <div class="image-details">
                             <h1 class="image-details__name"></h1>
@@ -87,14 +97,10 @@ export class gridConstructor{
                     </section>
                         <div class="control-menu__leftRight">
                           <div class="control-menu__leftRight__left">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                              </svg>
+                              <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#000" fill="none" fill-rule="evenodd"><path d="M24.166 1.843L3.627 12.113l20.539 10.269V1.843z" stroke-width="2"/><path fill="#D8D8D8" d="M.986.5h-1v22.775h1z"/></g></svg>
                           </div>
                           <div class="control-menu__leftRight__right">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
+                            <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#000" fill="none" fill-rule="evenodd"><path d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z" stroke-width="2"/><path fill="#D8D8D8" d="M24.708.5h1v22.775h-1z"/></g></svg>
                           </div>
                         </div>
                     </section>
@@ -190,5 +196,47 @@ export class gridConstructor{
             control_menu_section.parentNode.removeChild(control_menu_section);
             progress_bar.parentNode.removeChild(progress_bar);
         }, 500);
+    }
+
+    openFullImage(image_info) {
+        let {name, images: {gallery}} = image_info;
+
+        const image = new Image();
+        image.src = gallery;
+        image.alt = name;
+
+        this.#image_loader.imageLoaded(image).
+            then(loaded_image => {
+            console.log(loaded_image);
+            const new_element = document.createElement("div");
+            new_element.className = "modal";
+            new_element.innerHTML = `
+                    <div class="modal-container">
+                       <div class="close-container">
+                           <button class="close-button">
+                                <h4 class="close">Close</h4>
+                           </button>
+                       </div>
+                       <div class="full-image">
+                       </div> 
+                    </div>
+                `;
+            const image_container = new_element.querySelector(".full-image");
+            image_container.appendChild(loaded_image);
+            document.body.appendChild(new_element);
+            image_container.classList.add("opening");
+
+            setTimeout(() => {
+                image_container.classList.remove("opening");
+            }, 600);
+
+            const close_button = document.querySelector(".close-button");
+            close_button.addEventListener("click", () => {
+                image_container.classList.add("closing");
+                setTimeout(() => {
+                    new_element.remove();
+                }, 600)
+            })
+        })
     }
 }
