@@ -1,32 +1,34 @@
 export class AnimationManager {
     #timeout_ref;
     constructor() {
-        this.paused = false;
+        // this.paused = false;
         this.#timeout_ref = null;
 
     }
 
-    changeAnimation() {
-        document.querySelectorAll(".gallery-container__item").forEach(image => {
-            image.addEventListener("animationend", (event) => {
-                console.log(event);
-                requestAnimationFrame(() => {
-                    image.style.animation = "resetToBottom 10s linear infinite";
-                })
-            })
-        })
-    }
-
-    startStopAnimation() {
-        const main_container = document.querySelector(".header__start-slideshow");
-        main_container.addEventListener("click", () => {
-            document.querySelectorAll(".gallery-container__item").forEach(image => {
-                image.style.animationPlayState = this.paused ? "running" : "paused";
-                main_container.textContent = this.paused ? "Stop Slideshow" : "Start Slideshow";
-            });
-            this.paused = !this.paused;
-        })
-    }
+    // changeAnimation() {
+    //     document.querySelectorAll(".gallery-container__item").forEach(image => {
+    //         image.addEventListener("animationend", (event) => {
+    //             const viewport_width = window.innerWidth;
+    //             let animation_name
+    //
+    //             requestAnimationFrame(() => {
+    //                 image.style.animation = "resetToBottom 20s linear infinite";
+    //             })
+    //         })
+    //     })
+    // }
+    //
+    // startStopAnimation() {
+    //     const main_container = document.querySelector(".header__start-slideshow");
+    //     main_container.addEventListener("click", () => {
+    //         document.querySelectorAll(".gallery-container__item").forEach(image => {
+    //             image.style.animationPlayState = this.paused ? "running" : "paused";
+    //             main_container.textContent = this.paused ? "Stop Slideshow" : "Start Slideshow";
+    //         });
+    //         this.paused = !this.paused;
+    //     })
+    // }
 
     typeWriterEffect(text, element, buttons) {
         const text_element = element.querySelector(".year");

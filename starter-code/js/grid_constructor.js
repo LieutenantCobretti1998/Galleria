@@ -85,15 +85,16 @@ export class gridConstructor{
                     </div>
                 </div
               `
-                gallery_element.appendChild(modal_section);
+                gallery_element.insertAdjacentElement ("afterend", modal_section);
+                gallery_element.style.display = "none";
                 const control_menu_section = `
                     <div class="progress-bar">
                         <div class="progress-bar__fill"></div>
                     </div>
                     <section class="control-menu">
                     <section class="image-description-overview">
-                        <span class="image-description-overview__name">${image_info.name}</span>
-                        <span class="image-description-overview__author">${image_info.artist.name}</span>
+                        <span class="image-description-overview__name"></span>
+                        <span class="image-description-overview__author"></span>
                     </section>
                         <div class="control-menu__leftRight">
                           <div class="control-menu__leftRight__left">
@@ -105,9 +106,13 @@ export class gridConstructor{
                         </div>
                     </section>
                 `
-                gallery_element.insertAdjacentHTML("afterend", control_menu_section);
+                modal_section.insertAdjacentHTML("afterend", control_menu_section);
                 const control_menu_section_element = document.querySelector(".control-menu");
-                control_menu_section_element.classList.add("opening");
+                const progress_bar_element = document.querySelector(".progress-bar");
+                [control_menu_section_element, progress_bar_element].forEach((element) => {
+                    element.classList.add("hidden");
+                })
+                // control_menu_section_element.classList.add("opening");
                 const close_button = `
                     <div class="control-menu__close-button">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -118,7 +123,7 @@ export class gridConstructor{
                 header.insertAdjacentHTML("beforeend", close_button);
                 header.querySelector(".control-menu__close-button").classList.add("opening");
                 setTimeout(() => {
-                    control_menu_section_element.classList.remove("opening");
+                    // control_menu_section_element.classList.remove("opening");
                     header.querySelector(".control-menu__close-button").classList.remove("opening");
                 }, 500);
             }
@@ -137,14 +142,16 @@ export class gridConstructor{
         const left_button = document.querySelector(".control-menu__leftRight__left");
         const right_button = document.querySelector(".control-menu__leftRight__right");
         const image_description_element = document.querySelector(".image-description-overview");
-        image_description_element.querySelector(".image-description-overview__name").innerText = image_info.name;
-        image_description_element.querySelector(".image-description-overview__author").innerText = image_info.artist.name;
+        const control_menu_section_element = document.querySelector(".control-menu");
+        const progress_bar_element = document.querySelector(".progress-bar");
         modal_section.querySelector(".year").innerText = "";
         [left_button, right_button].forEach((button) => {
             button.classList.add("disabled");
         })
         content_section.classList.remove("visible");
+        image_description_element.classList.remove("visible");
         content_section.classList.add("hidden");
+        image_description_element.classList.add("hidden");
 
         // Update after images are loaded
         const show_case = new ShowCaseModal(image_info);
@@ -160,7 +167,14 @@ export class gridConstructor{
                     modal_section.querySelector('.author-image').alt = image_info.artist.name;
                     modal_section.querySelector('.modal-window__content__story__text').textContent = image_info.description;
                     modal_section.querySelector('.modal-window__content__story__source').href = image_info.source;
+                    image_description_element.querySelector(".image-description-overview__name").innerText = image_info.name;
+                    image_description_element.querySelector(".image-description-overview__author").innerText = image_info.artist.name;
+                    [control_menu_section_element, progress_bar_element].forEach((element) => {
+                       !element.classList.contains("visible") ? element.classList.add("visible"): null;
+                       element.classList.remove("hidden");
+                    })
                     content_section.classList.add("visible");
+                    image_description_element.classList.add("visible");
                 }, 500);
             })
             .catch((error) => {
@@ -175,6 +189,7 @@ export class gridConstructor{
      */
 
     closeModalWindow(slideshow_button, header) {
+        const gallery_container = document.querySelector(".gallery-container");
         const modal_section = document.querySelector(".modal-window");
         const content_section = modal_section.querySelector('.modal-window__content');
         const control_menu_section = document.querySelector(".control-menu");
@@ -183,7 +198,8 @@ export class gridConstructor{
         const close_button = document.querySelector(".control-menu__close-button");
         const year_element = document.querySelector(".year");
 
-        [close_button, year_element, content_section, control_menu_section, progress_bar__line].forEach((element) => {
+        [modal_section, close_button, year_element, content_section, control_menu_section, progress_bar__line].forEach((element) => {
+            element.classList.remove("visible");
             element.classList.add("closing");
         });
 
@@ -195,6 +211,7 @@ export class gridConstructor{
             header.querySelector(".header__start-slideshow").classList.remove("opening");
             control_menu_section.parentNode.removeChild(control_menu_section);
             progress_bar.parentNode.removeChild(progress_bar);
+            gallery_container.style.display = "grid";
         }, 500);
     }
 
