@@ -2,20 +2,28 @@
 import {DataFetcher} from "./data_fetcher.js";
 import {gridConstructor} from "./grid_constructor.js";
 // import {AnimationManager} from "./animations.js";
-import {imagePresentation} from "./image_opener.js";
+import {imagePresentation, ShowCaseModal} from "./image_opener.js";
 
 let selected_id;
 document.addEventListener("DOMContentLoaded", async () => {
     const gallery_element = document.querySelector(".gallery-container");
 
     const data_fetcher = new DataFetcher();
+    const image_logic_class = new ShowCaseModal();
     // const animation_manager = new AnimationManager();
     const header = document.querySelector(".header__name");
     const header_slideshow_button = header.querySelector(".header__start-slideshow");
     await data_fetcher.fetchData()
         .then(data => {
             const grid = new gridConstructor(data);
-            grid.loadGridsImage();
+            image_logic_class.loadGridImages(data)
+                .then(() => {
+                    grid.loadGridsImage();
+                    gallery_element.classList.add("opening");
+                    setTimeout(() => {
+                        gallery_element.classList.remove("opening");
+                    }, 1000)
+                });
             header_slideshow_button.addEventListener("click", () => {
                 startSlideShow(data, gallery_element,header, grid);
             });

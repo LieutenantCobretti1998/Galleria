@@ -32,7 +32,18 @@ export class ShowCaseModal {
             this.imageLoaded(hero_image),
             this.imageLoaded(author_image)
         ])
+    }
 
+    loadGridImages(data) {
+        const load_promies = data.map((image) => {
+            const img = new Image();
+            img.src = image.images.thumbnail;
+            return new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+            });
+        });
+        return Promise.all(load_promies);
     }
 
     imageLoaded(img) {
