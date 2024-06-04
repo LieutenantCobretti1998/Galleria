@@ -6,6 +6,7 @@
 export function imagePresentation(callback) {
     const main_container = document.querySelector('.gallery-container');
     let id
+    console.log("hi");
      main_container.addEventListener("click", (event) => {
 
         if (event.target.tagName === "IMG") {

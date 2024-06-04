@@ -86,7 +86,6 @@ export class gridConstructor{
                 </div
               `
                 gallery_element.insertAdjacentElement ("afterend", modal_section);
-                gallery_element.style.display = "none";
                 const control_menu_section = `
                     <div class="progress-bar">
                         <div class="progress-bar__fill"></div>
@@ -127,6 +126,7 @@ export class gridConstructor{
                     header.querySelector(".control-menu__close-button").classList.remove("opening");
                 }, 500);
             }
+            gallery_element.remove();
             this.updateModalContent(modal_section, image_info);
     }
 
@@ -186,10 +186,11 @@ export class gridConstructor{
     /**
      * @param {HTMLMenuElement} slideshow_button
      * @param {HTMLMenuElement} header
+     * @param {Element} gallery_element
      */
 
-    closeModalWindow(slideshow_button, header) {
-        const gallery_container = document.querySelector(".gallery-container");
+    closeModalWindow(slideshow_button, header, gallery_element) {
+        const main_header_element = document.querySelector(".header");
         const modal_section = document.querySelector(".modal-window");
         const content_section = modal_section.querySelector('.modal-window__content');
         const control_menu_section = document.querySelector(".control-menu");
@@ -211,7 +212,8 @@ export class gridConstructor{
             header.querySelector(".header__start-slideshow").classList.remove("opening");
             control_menu_section.parentNode.removeChild(control_menu_section);
             progress_bar.parentNode.removeChild(progress_bar);
-            gallery_container.style.display = "grid";
+            main_header_element.insertAdjacentElement("afterend", gallery_element);
+            gallery_element.classList.add("opening");
         }, 500);
     }
 

@@ -7,6 +7,7 @@ import {imagePresentation} from "./image_opener.js";
 let selected_id;
 document.addEventListener("DOMContentLoaded", async () => {
     const gallery_element = document.querySelector(".gallery-container");
+
     const data_fetcher = new DataFetcher();
     // const animation_manager = new AnimationManager();
     const header = document.querySelector(".header__name");
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     await data_fetcher.fetchData()
         .then(data => {
             const grid = new gridConstructor(data);
-            console.log(data)
             grid.loadGridsImage();
             header_slideshow_button.addEventListener("click", () => {
                 startSlideShow(data, gallery_element,header, grid);
@@ -28,7 +28,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                         grid.loadShowCaseWindow(selected_image, gallery_element, header);
                         const close_button = document.querySelector(".control-menu__close-button");
                         close_button.addEventListener("click", () => {
-                            grid.closeModalWindow(header_slideshow_button, header);
+                            grid.closeModalWindow(header_slideshow_button, header, gallery_element);
+                            console.log(gallery_element.classList)
+                            setTimeout(() => {
+                                gallery_element.classList.remove("opening");
+
+                            }, 1000)
                         });
                         const left_button = document.querySelector(".control-menu__leftRight__left");
                         const right_button = document.querySelector(".control-menu__leftRight__right");
@@ -67,8 +72,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         if(selected_image) {
             grid.loadShowCaseWindow(selected_image, gallery_element, header);
             const close_button = document.querySelector(".control-menu__close-button");
+            console.log(10);
             close_button.addEventListener("click", () => {
-                grid.closeModalWindow(header_slideshow_button, header);
+                grid.closeModalWindow(header_slideshow_button, header, gallery_element);
+                setTimeout(() => {
+                    gallery_element.classList.remove("opening");
+                }, 1000)
             });
             const left_button = document.querySelector(".control-menu__leftRight__left");
             const right_button = document.querySelector(".control-menu__leftRight__right");
