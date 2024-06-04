@@ -13,7 +13,6 @@
 
   .modal-container {
     margin: 4rem;
-    width: 30%;
   }
 
   .close-contnainer {
@@ -23,9 +22,8 @@
   }
 
   .full-image {
-    display: inline-block;
+    display: block;
     max-width: 100%;
-    overflow: hidden;
   }
 
   .close-button {

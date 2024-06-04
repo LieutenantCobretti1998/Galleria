@@ -1,20 +1,20 @@
 .modal-window {
-  position: absolute;
   animation: fadeIn .5s ease-in-out;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  margin: 5rem;
+  //top: 0;
+  //left: 0;
+  //width: 100%;
+  //height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: $white;
-  z-index: 1000;
+  //z-index: 1000;
 
   &__content {
     display: flex;
     gap: 1.5vw;
-    z-index: 1000;
+    //z-index: 1000;
     &__image-flex {
       min-width: 30%;
       display: flex;
@@ -74,6 +74,7 @@
 }
 
 .art {
+  position: relative;
   width: auto;
   max-height: 60vh;
   object-fit: cover;
@@ -82,6 +83,7 @@
 .control-menu {
   margin: 5rem;
   display: flex;
+  align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
 
@@ -100,6 +102,11 @@
     &__left,
     &__right {
       cursor: pointer;
+      transition: opacity .2s linear;
+
+      &:hover {
+        opacity: 0.4;
+      }
     }
 
     & div svg {
@@ -115,7 +122,7 @@
   font-weight: bold;
   color: $light-grey-main;
   position: absolute;
-  top: -4%;
+  top: 10%;
   left: 72%;
 
 }
@@ -131,27 +138,26 @@
   }
 
   &__name {
-    font-size: 1.8rem;
+    font-size: $font-name-overview;
     text-align: left;
     line-height: normal;
     text-wrap: none;
+    font-weight: bold;
   }
 
   &__author {
-    font-size: 1.5rem;
+    font-size: $font-author-overview  ;
     text-align: left;
     line-height: normal;
-    font-weight: bold;
   }
 }
 
 .progress-bar {
-  width: 100%;
-  height: .4rem;
+  margin: 5rem;
+  width: 95%;
+  height: .7rem;
   animation: fadeIn .5s ease-in-out;
   background-color: #eee;
-  position: absolute;
-  bottom: 10rem;
 
   &__fill {
     height: 100%;
@@ -169,12 +175,12 @@
 .view-image {
   cursor: pointer;
   position: absolute;
-  top: 55rem;
-  left: 5rem;
+  top: 71vh;
+  left: 3vw;
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
 
   &__icon {
@@ -183,7 +189,7 @@
   }
 
   &__text {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
     letter-spacing: .2px;
   }

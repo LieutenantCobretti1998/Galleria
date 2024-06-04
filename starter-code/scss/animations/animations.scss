@@ -1,21 +1,21 @@
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(-1500%);
-  }
-}
-
-@keyframes resetToBottom {
-  from {
-    transform: translateY(800%);
-  }
-
-  to {
-    transform: translateY(-1500%);
-  }
-}
+//@keyframes slideUp {
+//  from {
+//    transform: translateY(100%);
+//  }
+//  to {
+//    transform: translateY(-1500%);
+//  }
+//}
+//
+//@keyframes resetToBottom {
+//  from {
+//    transform: translateY(800%);
+//  }
+//
+//  to {
+//    transform: translateY(-1500%);
+//  }
+//}
 
 @keyframes fadeIn {
   from {
@@ -45,14 +45,35 @@
   animation: fadeIn .5s ease-in-out;
 }
 .closing {
-  animation: fadeOut .5s forwards;
+  animation: fadeOut .5s forwards !important;
 }
 .hidden {
-  opacity: 0;
+  opacity: 0 !important;
   transition: opacity .5s ease;
 }
 .visible {
-  opacity: 1;
+  opacity: 1 !important;
   transition: opacity .5s ease;
 }
+
+
+//@media (max-width: 480px) and (min-width: 320px) {
+//  @keyframes slideUp {
+//    from {
+//      transform: translateY(10%);
+//    }
+//    to {
+//      transform: translateY(-1500%); // Reduced movement
+//    }
+//  }
+//
+//  @keyframes resetToBottom {
+//    from {
+//      transform: translateY(1%);
+//    }
+//    to {
+//      transform: translateY(-1500%); // Reduced movement
+//    }
+//  }
+//}
 

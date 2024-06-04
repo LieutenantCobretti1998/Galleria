@@ -2,22 +2,31 @@
   display: grid;
   grid-template: repeat(10, 5vw) / repeat(4, 1fr);
   grid-gap: 1.1vw;
-  overflow: hidden;
-  //justify-items: center;
-  //align-items: center;
+  //overflow: hidden;
   margin: 2.5vw;
   height: 70vh;
   position: relative;
 
 
   &__item {
-    animation: slideUp 10s linear;
+    //animation: slideUp 20s linear 0s;
+
+    & > figure {
+      position: relative;
+    }
+
+    & > figure figcaption {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
   }
 
   &__item > figure img {
     width: 15vw;
     height: auto;
     cursor: pointer;
+    object-fit: contain;
   }
 }
 
@@ -99,11 +108,10 @@
   display: flex;
   flex-direction: column;
   gap: .2vw;
-  max-width: 100%;
-
+  background-color: rgba(0, 0, 0, 0.1);
 
   > span {
-    color: $dark-grey-2;
+    color: $white;
   }
 
   &__name {

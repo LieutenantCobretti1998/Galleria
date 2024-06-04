@@ -1,19 +1,3 @@
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(-1500%);
-  }
-}
-@keyframes resetToBottom {
-  from {
-    transform: translateY(800%);
-  }
-  to {
-    transform: translateY(-1500%);
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -35,16 +19,16 @@
 }
 
 .closing {
-  animation: fadeOut 0.5s forwards;
+  animation: fadeOut 0.5s forwards !important;
 }
 
 .hidden {
-  opacity: 0;
+  opacity: 0 !important;
   transition: opacity 0.5s ease;
 }
 
 .visible {
-  opacity: 1;
+  opacity: 1 !important;
   transition: opacity 0.5s ease;
 }
 
@@ -107,18 +91,23 @@ body {
   display: grid;
   grid-template: repeat(10, 5vw)/repeat(4, 1fr);
   grid-gap: 1.1vw;
-  overflow: hidden;
   margin: 2.5vw;
   height: 70vh;
   position: relative;
 }
-.gallery-container__item {
-  animation: slideUp 10s linear;
+.gallery-container__item > figure {
+  position: relative;
+}
+.gallery-container__item > figure figcaption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 .gallery-container__item > figure img {
   width: 15vw;
   height: auto;
   cursor: pointer;
+  object-fit: contain;
 }
 
 #item-0 {
@@ -199,39 +188,64 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2vw;
-  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .image-description > span {
-  color: #444444;
+  color: #FFFFFF;
 }
 .image-description__name {
   text-align: left;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 .image-description__author {
   text-align: left;
   height: auto;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
+@media (max-width: 480px) and (min-width: 320px) {
+  html {
+    font-size: 80%;
+  }
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-container__item {
+    animation: slideUp 50s linear 0s;
+  }
+  .gallery-container__item > figure figcaption {
+    bottom: 25rem;
+  }
+  .gallery-container__item > figure img {
+    width: 100vw;
+    height: 80vh;
+  }
+  .image-description {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .image-description__name {
+    font-size: 2.4rem;
+  }
+  .image-description__author {
+    font-size: 2.1rem;
+  }
+  .header__start-slideshow {
+    font-size: 1rem;
+  }
+}
 .modal-window {
-  position: absolute;
   animation: fadeIn 0.5s ease-in-out;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  margin: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #FFFFFF;
-  z-index: 1000;
 }
 .modal-window__content {
   display: flex;
   gap: 1.5vw;
-  z-index: 1000;
 }
 .modal-window__content__image-flex {
   min-width: 30%;
@@ -284,6 +298,7 @@ body {
 }
 
 .art {
+  position: relative;
   width: auto;
   max-height: 60vh;
   object-fit: cover;
@@ -292,6 +307,7 @@ body {
 .control-menu {
   margin: 5rem;
   display: flex;
+  align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
@@ -309,6 +325,10 @@ body {
 }
 .control-menu__leftRight__left, .control-menu__leftRight__right {
   cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+.control-menu__leftRight__left:hover, .control-menu__leftRight__right:hover {
+  opacity: 0.4;
 }
 .control-menu__leftRight div svg {
   width: 2vw;
@@ -321,7 +341,7 @@ body {
   font-weight: bold;
   color: #F3F3F3;
   position: absolute;
-  top: -4%;
+  top: 10%;
   left: 72%;
 }
 
@@ -335,25 +355,24 @@ body {
   color: #000000;
 }
 .image-description-overview__name {
-  font-size: 1.8rem;
+  font-size: 3rem;
   text-align: left;
   line-height: normal;
   text-wrap: none;
+  font-weight: bold;
 }
 .image-description-overview__author {
-  font-size: 1.5rem;
+  font-size: 2.7rem;
   text-align: left;
   line-height: normal;
-  font-weight: bold;
 }
 
 .progress-bar {
-  width: 100%;
-  height: 0.4rem;
+  margin: 5rem;
+  width: 95%;
+  height: 0.7rem;
   animation: fadeIn 0.5s ease-in-out;
   background-color: #eee;
-  position: absolute;
-  bottom: 10rem;
 }
 .progress-bar__fill {
   height: 100%;
@@ -370,12 +389,12 @@ body {
 .view-image {
   cursor: pointer;
   position: absolute;
-  top: 55rem;
-  left: 5rem;
+  top: 71vh;
+  left: 3vw;
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
 }
 .view-image__icon {
@@ -383,7 +402,7 @@ body {
   height: 1.5rem;
 }
 .view-image__text {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 0.2px;
 }
@@ -403,7 +422,6 @@ body {
 }
 .modal .modal-container {
   margin: 4rem;
-  width: 30%;
 }
 .modal .close-contnainer {
   width: 100%;
@@ -411,9 +429,8 @@ body {
   justify-content: flex-end;
 }
 .modal .full-image {
-  display: inline-block;
+  display: block;
   max-width: 100%;
-  overflow: hidden;
 }
 .modal .close-button {
   text-transform: uppercase;
