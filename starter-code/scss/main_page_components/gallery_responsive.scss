@@ -1,0 +1,38 @@
+@media (max-width: 480px) and (min-width: 320px) {
+  html {
+    font-size: 80%;
+  }
+
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      animation: slideUp 50s linear 0s;
+      & > figure figcaption {
+        bottom: 25rem;
+      }
+    }
+
+    &__item > figure img {
+      width: 100vw;
+      height: 80vh;
+    }
+  }
+
+  .image-description {
+    background-color: rgba(0, 0, 0, 0.2);
+
+    &__name {
+        font-size: $font-name-mobile;
+    }
+
+    &__author {
+      font-size: $font-author-mobile;
+    }
+  }
+
+  .header__start-slideshow {
+    font-size: 1rem;
+  }
+}
