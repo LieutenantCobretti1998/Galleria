@@ -6,22 +6,21 @@
   .gallery-container {
     display: flex;
     flex-direction: column;
+    gap: 3vh;
 
     &__item {
-      animation: slideUp 50s linear 0s;
       & > figure figcaption {
-        bottom: 25rem;
+        bottom: 2rem;
       }
     }
 
     &__item > figure img {
-      width: 100vw;
-      height: 80vh;
+      min-width: 95vw;
     }
   }
 
   .image-description {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
 
     &__name {
         font-size: $font-name-mobile;
@@ -34,5 +33,102 @@
 
   .header__start-slideshow {
     font-size: 1rem;
+  }
+  .modal-window {
+    margin: 0;
+    overflow: auto;
+    &__content {
+      padding-left: .7rem;
+      padding-right: .7rem;
+      flex-direction: column;
+
+      &__story {
+        position: relative;
+        gap: 1.5vh;
+
+        &__text {
+          font-size: 1rem;
+          line-height: 2.1rem;
+        }
+      }
+
+      &__image-flex {
+        z-index: 1;
+      }
+    }
+  .image-details {
+    align-items: flex-start;
+      gap: .2vh;
+      margin-bottom: 1rem;
+    &__name {
+      font-size: 1.5rem;
+      line-height: 2.26rem;
+    }
+
+    &__author {
+      font-size: .9rem;
+    }
+  }
+  }
+  .art {
+    max-height: 50vh;
+  }
+
+  .year {
+    font-size: $font-year-mobile;
+    top: 75%;
+    left: 45%;
+  }
+
+  .view-image {
+    top: 50vh;
+  }
+
+  .author-image {
+    width: 20vw;
+    height: 10vh;
+  }
+
+  .progress-bar {
+    margin: 3rem 0 0 .7rem;
+  }
+
+  .control-menu {
+    margin: .8rem 1rem 0 .7rem;
+
+    &__leftRight {
+      gap: 2.5rem;
+
+      & div svg {
+        width: auto;
+        height: auto;
+      }
+    }
+    &__close-button {
+      width: 10vw;
+      height: 5vh;
+    }
+  }
+
+  .image-description-overview {
+    gap: .5vh;
+    &__name {
+      font-size: 1.1rem;
+    }
+
+    &__author {
+      font-size: .8rem;
+    }
+  }
+  .modal-container {
+    .full-image {
+      & img {
+        max-width: 100%;
+      }
+    }
+    .close-button {
+      font-size: .8rem;
+    }
+
   }
 }

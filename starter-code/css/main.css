@@ -204,37 +204,6 @@ body {
   font-size: 1.4rem;
 }
 
-@media (max-width: 480px) and (min-width: 320px) {
-  html {
-    font-size: 80%;
-  }
-  .gallery-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .gallery-container__item {
-    animation: slideUp 50s linear 0s;
-  }
-  .gallery-container__item > figure figcaption {
-    bottom: 25rem;
-  }
-  .gallery-container__item > figure img {
-    width: 100vw;
-    height: 80vh;
-  }
-  .image-description {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  .image-description__name {
-    font-size: 2.4rem;
-  }
-  .image-description__author {
-    font-size: 2.1rem;
-  }
-  .header__start-slideshow {
-    font-size: 1rem;
-  }
-}
 .modal-window {
   animation: fadeIn 0.5s ease-in-out;
   margin: 5rem;
@@ -449,6 +418,113 @@ body {
   color: #7D7D7D;
 }
 
+@media (max-width: 480px) and (min-width: 320px) {
+  html {
+    font-size: 80%;
+  }
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+  .gallery-container__item > figure figcaption {
+    bottom: 2rem;
+  }
+  .gallery-container__item > figure img {
+    min-width: 95vw;
+  }
+  .image-description {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .image-description__name {
+    font-size: 2.4rem;
+  }
+  .image-description__author {
+    font-size: 2.1rem;
+  }
+  .header__start-slideshow {
+    font-size: 1rem;
+  }
+  .modal-window {
+    margin: 0;
+    overflow: auto;
+  }
+  .modal-window__content {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    flex-direction: column;
+  }
+  .modal-window__content__story {
+    position: relative;
+    gap: 1.5vh;
+  }
+  .modal-window__content__story__text {
+    font-size: 1rem;
+    line-height: 2.1rem;
+  }
+  .modal-window__content__image-flex {
+    z-index: 1;
+  }
+  .modal-window .image-details {
+    align-items: flex-start;
+    gap: 0.2vh;
+    margin-bottom: 1rem;
+  }
+  .modal-window .image-details__name {
+    font-size: 1.5rem;
+    line-height: 2.26rem;
+  }
+  .modal-window .image-details__author {
+    font-size: 0.9rem;
+  }
+  .art {
+    max-height: 50vh;
+  }
+  .year {
+    font-size: 5rem;
+    top: 75%;
+    left: 45%;
+  }
+  .view-image {
+    top: 50vh;
+  }
+  .author-image {
+    width: 20vw;
+    height: 10vh;
+  }
+  .progress-bar {
+    margin: 3rem 0 0 0.7rem;
+  }
+  .control-menu {
+    margin: 0.8rem 1rem 0 0.7rem;
+  }
+  .control-menu__leftRight {
+    gap: 2.5rem;
+  }
+  .control-menu__leftRight div svg {
+    width: auto;
+    height: auto;
+  }
+  .control-menu__close-button {
+    width: 10vw;
+    height: 5vh;
+  }
+  .image-description-overview {
+    gap: 0.5vh;
+  }
+  .image-description-overview__name {
+    font-size: 1.1rem;
+  }
+  .image-description-overview__author {
+    font-size: 0.8rem;
+  }
+  .modal-container .full-image img {
+    max-width: 100%;
+  }
+  .modal-container .close-button {
+    font-size: 0.8rem;
+  }
+}
 
 
 /*# sourceMappingURL=main.css.map */
