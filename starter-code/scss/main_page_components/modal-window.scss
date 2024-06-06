@@ -71,13 +71,14 @@
 .author-image {
   width: 5vw;
   height: 8vh;
+  object-fit: contain;
 }
 
 .art {
   position: relative;
   width: auto;
-  max-height: 60vh;
-  object-fit: cover;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
 .control-menu {
@@ -100,11 +101,11 @@
     flex: 1;
     gap: 2rem;
     &__left,
-    &__right {
+    &__right, {
       cursor: pointer;
       transition: opacity .2s linear;
 
-      &:hover {
+      &:active {
         opacity: 0.4;
       }
     }
@@ -175,8 +176,10 @@
 .view-image {
   cursor: pointer;
   position: absolute;
-  top: 71vh;
-  left: 3vw;
+  //top: 71vh;
+  //left: 3vw;
+  //left: 50%; /* Center horizontally */
+  //transform: translate(-90%, 30%); /* Center the element exactly at the position */
   display: flex;
   align-items: center;
   gap: 1rem;
