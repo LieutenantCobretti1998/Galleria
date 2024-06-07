@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 
   .modal-container {
     margin: 4rem;
@@ -23,7 +24,9 @@
 
   .full-image {
     display: block;
-    max-width: 100%;
+    & img {
+      max-width: 100%;
+    }
   }
 
   .close-button {
@@ -43,4 +46,8 @@
       color: $dark-grey;
     }
   }
+}
+
+.modal-open {
+  overflow: hidden;
 }

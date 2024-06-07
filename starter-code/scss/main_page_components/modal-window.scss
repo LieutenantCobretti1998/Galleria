@@ -119,13 +119,9 @@
 }
 
 .year {
-  font-size: 15rem;
+  font-size: $font-year-overview;
   font-weight: bold;
-  color: $light-grey-main;
-  position: absolute;
-  top: 10%;
-  left: 72%;
-
+  color: $black;
 }
 
 .image-description-overview {
@@ -176,10 +172,7 @@
 .view-image {
   cursor: pointer;
   position: absolute;
-  //top: 71vh;
-  //left: 3vw;
-  //left: 50%; /* Center horizontally */
-  //transform: translate(-90%, 30%); /* Center the element exactly at the position */
+  top: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -197,3 +190,9 @@
     letter-spacing: .2px;
   }
 }
+
+.gallery-image {
+  position: relative;
+  align-self: center;
+}
+

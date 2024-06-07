@@ -307,12 +307,9 @@ body {
 }
 
 .year {
-  font-size: 15rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  color: #F3F3F3;
-  position: absolute;
-  top: 10%;
-  left: 72%;
+  color: #000000;
 }
 
 .image-description-overview {
@@ -359,6 +356,7 @@ body {
 .view-image {
   cursor: pointer;
   position: absolute;
+  top: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -375,6 +373,11 @@ body {
   letter-spacing: 0.2px;
 }
 
+.gallery-image {
+  position: relative;
+  align-self: center;
+}
+
 .modal {
   z-index: 10000;
   position: fixed;
@@ -387,6 +390,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
 .modal .modal-container {
   margin: 4rem;
@@ -398,6 +402,8 @@ body {
 }
 .modal .full-image {
   display: block;
+}
+.modal .full-image img {
   max-width: 100%;
 }
 .modal .close-button {
@@ -417,7 +423,64 @@ body {
   color: #7D7D7D;
 }
 
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+.modal-open {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1280px) {
+  html {
+    font-size: 65%;
+  }
+  .image-description__name {
+    font-size: 1rem;
+  }
+  .image-description__author {
+    font-size: 0.8rem;
+  }
+  .modal-window__content__image-flex {
+    position: relative;
+  }
+  .modal-window__content__story__text {
+    font-size: 1.3rem;
+  }
+  .modal-window__content__story {
+    gap: 4.5vh;
+  }
+  .image-details {
+    background-color: #FFFFFF;
+    top: -2%;
+    left: -50%;
+    position: absolute;
+  }
+  .image-details__name {
+    font-size: 3.5rem !important;
+  }
+  .image-details__author {
+    font-size: 2rem !important;
+  }
+}
+@media screen and (max-width: 1600px) and (min-width: 1280px) and (max-width: 1024px) and (orientation: landscape) {
+  .modal-container .full-image img {
+    max-width: 50%;
+  }
+  .full-image {
+    display: block;
+    text-align: center;
+  }
+  .close-container {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1600px) and (min-width: 1280px) {
+  .gallery-image {
+    align-self: flex-start;
+  }
+  .author-image {
+    position: absolute;
+    top: 88.5%;
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 769px) {
   html {
     font-size: 70%;
   }
@@ -481,12 +544,7 @@ body {
     height: 15vh;
   }
   .year {
-    font-size: 7rem;
-    top: 100%;
-    left: 70%;
-  }
-  .view-image {
-    left: 43%;
+    font-size: 1.6rem;
   }
   .view-image__text {
     font-size: 1.2rem;
@@ -505,8 +563,17 @@ body {
     height: auto;
   }
   .control-menu__close-button {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .modal-container .close-button {
+    font-size: 1.5rem;
+  }
+  .image-description-overview__name {
+    font-size: 2.2rem;
+  }
+  .image-description-overview__author {
+    font-size: 1.7rem;
   }
 }
 @media screen and (max-width: 768px) and (min-width: 600px) {
@@ -552,7 +619,7 @@ body {
     gap: 1.2vh;
   }
   .modal-window__content__story__text {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 2.1rem;
   }
   .modal-window .image-details {
@@ -573,15 +640,10 @@ body {
     height: 15vh;
   }
   .year {
-    font-size: 4rem;
-    top: 79%;
-    left: 60%;
+    font-size: 1.4rem;
   }
   .art {
     max-height: 50vh;
-  }
-  .view-image {
-    left: 43%;
   }
   .view-image__text {
     font-size: 1.1rem;
@@ -600,11 +662,23 @@ body {
     height: auto;
   }
   .control-menu__close-button {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .modal-container .full-image img {
+    max-width: 100%;
+  }
+  .modal-container .full-image .close-button {
+    font-size: 1.5rem;
+  }
+  .image-description-overview__name {
+    font-size: 1.9rem;
+  }
+  .image-description-overview__author {
+    font-size: 1.5rem;
   }
 }
-@media screen and (max-width: 600px) and (min-width: 320px) {
+@media screen and (max-width: 599px) and (min-width: 320px) {
   html {
     font-size: 80%;
   }
@@ -652,32 +726,25 @@ body {
     z-index: 1;
   }
   .modal-window .image-details {
-    align-items: flex-start;
+    align-items: center;
     gap: 0.2vh;
     margin-bottom: 1rem;
   }
   .modal-window .image-details__name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 2.26rem;
   }
   .modal-window .image-details__author {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .art {
     max-height: 40vh;
-  }
-  .year {
-    font-size: 4rem;
-    top: 62%;
-    left: 45%;
-  }
-  .view-image {
-    left: 35%;
   }
   .view-image__text {
     font-size: 1.2rem;
   }
   .author-image {
+    align-self: center;
     width: 20vw;
     height: 10vh;
   }
@@ -702,16 +769,31 @@ body {
     gap: 0.5vh;
   }
   .image-description-overview__name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .image-description-overview__author {
-    font-size: 0.8rem;
+    font-size: 1rem;
+  }
+  .image-description-overview .year {
+    font-size: 0.9rem;
   }
   .modal-container .full-image img {
     max-width: 100%;
   }
   .modal-container .close-button {
     font-size: 0.8rem;
+  }
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  .modal-container .full-image img {
+    max-width: 35%;
+  }
+  .full-image {
+    display: block;
+    text-align: center;
+  }
+  .close-container {
+    text-align: center;
   }
 }
 
