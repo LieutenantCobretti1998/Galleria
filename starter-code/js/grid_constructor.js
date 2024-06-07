@@ -58,17 +58,17 @@ export class gridConstructor{
                 modal_section = document.createElement('section');
                 modal_section.className = "modal-window";
                 modal_section.innerHTML = `
-                <p class="year">
-                </p>
                 <div class="modal-window__content show">
-                    <img class="art" src="" alt="">
-                    <div class="view-image">
-                        <div class="view-image__icon">
-                            <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="nonzero"><path d="M7.714 0l1.5 1.5-2.357 2.357 1.286 1.286L10.5 2.786l1.5 1.5V0zM3.857 6.857L1.5 9.214 0 7.714V12h4.286l-1.5-1.5 2.357-2.357zM8.143 6.857L6.857 8.143 9.214 10.5l-1.5 1.5H12V7.714l-1.5 1.5zM4.286 0H0v4.286l1.5-1.5 2.357 2.357 1.286-1.286L2.786 1.5z"/></g></svg>   
+                    <div class="gallery-image">
+                        <img class="art" src="" alt="">
+                        <div class="view-image">
+                            <div class="view-image__icon">
+                                <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="nonzero"><path d="M7.714 0l1.5 1.5-2.357 2.357 1.286 1.286L10.5 2.786l1.5 1.5V0zM3.857 6.857L1.5 9.214 0 7.714V12h4.286l-1.5-1.5 2.357-2.357zM8.143 6.857L6.857 8.143 9.214 10.5l-1.5 1.5H12V7.714l-1.5 1.5zM4.286 0H0v4.286l1.5-1.5 2.357 2.357 1.286-1.286L2.786 1.5z"/></g></svg>   
+                            </div>
+                            <p class="view-image__text">
+                                View Image
+                            </p>
                         </div>
-                        <p class="view-image__text">
-                            View Image
-                        </p>
                     </div>
                     <div class="modal-window__content__image-flex">
                         <div class="image-details">
@@ -93,6 +93,7 @@ export class gridConstructor{
                     <section class="control-menu">
                     <section class="image-description-overview">
                         <span class="image-description-overview__name"></span>
+                        <span class="year"></span>
                         <span class="image-description-overview__author"></span>
                     </section>
                         <div class="control-menu__leftRight">
@@ -144,7 +145,7 @@ export class gridConstructor{
         const image_description_element = document.querySelector(".image-description-overview");
         const control_menu_section_element = document.querySelector(".control-menu");
         const progress_bar_element = document.querySelector(".progress-bar");
-        modal_section.querySelector(".year").innerText = "";
+        document.querySelector(".year").innerText = "";
         [left_button, right_button].forEach((button) => {
             button.classList.add("disabled");
         })
@@ -160,7 +161,7 @@ export class gridConstructor{
                 setTimeout(() => {
                     modal_section.querySelector(".art").src = hero_image.src;
                     modal_section.querySelector(".art").alt = image_info.name;
-                    this.#animation.typeWriterEffect(image_info.year.toString(), modal_section, [left_button, right_button]);
+                    this.#animation.typeWriterEffect(image_info.year.toString(), document, [left_button, right_button]);
                     modal_section.querySelector('.image-details__name').textContent = image_info.name;
                     modal_section.querySelector('.image-details__author').textContent = image_info.artist.name;
                     modal_section.querySelector('.author-image').src = author_image.src;
@@ -219,14 +220,14 @@ export class gridConstructor{
 
     openFullImage(image_info) {
         let {name, images: {gallery}} = image_info;
-
+        const body = document.body;
+        body.className = "modal-open";
         const image = new Image();
         image.src = gallery;
         image.alt = name;
 
         this.#image_loader.imageLoaded(image).
             then(loaded_image => {
-            console.log(loaded_image);
             const new_element = document.createElement("div");
             new_element.className = "modal";
             new_element.innerHTML = `
@@ -253,6 +254,7 @@ export class gridConstructor{
             close_button.addEventListener("click", () => {
                 image_container.classList.add("closing");
                 setTimeout(() => {
+                    body.classList.remove("modal-open");
                     new_element.remove();
                 }, 600)
             })
