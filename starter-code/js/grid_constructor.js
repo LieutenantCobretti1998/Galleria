@@ -61,6 +61,10 @@ export class gridConstructor{
                 <div class="modal-window__content show">
                     <div class="gallery-image">
                         <img class="art" src="" alt="">
+                        <div class="image-details">
+                            <h1 class="image-details__name"></h1>
+                            <h2 class="image-details__author"></h2>
+                        </div>
                         <div class="view-image">
                             <div class="view-image__icon">
                                 <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="nonzero"><path d="M7.714 0l1.5 1.5-2.357 2.357 1.286 1.286L10.5 2.786l1.5 1.5V0zM3.857 6.857L1.5 9.214 0 7.714V12h4.286l-1.5-1.5 2.357-2.357zM8.143 6.857L6.857 8.143 9.214 10.5l-1.5 1.5H12V7.714l-1.5 1.5zM4.286 0H0v4.286l1.5-1.5 2.357 2.357 1.286-1.286L2.786 1.5z"/></g></svg>   
@@ -71,10 +75,6 @@ export class gridConstructor{
                         </div>
                     </div>
                     <div class="modal-window__content__image-flex">
-                        <div class="image-details">
-                            <h1 class="image-details__name"></h1>
-                            <h2 class="image-details__author"></h2>
-                        </div>
                          <img class="author-image" src="" alt="">
                     </div>
                     <div class="modal-window__content__story">
@@ -176,6 +176,7 @@ export class gridConstructor{
                     })
                     content_section.classList.add("visible");
                     image_description_element.classList.add("visible");
+                    content_section.classList.remove("hidden");
                 }, 500);
             })
             .catch((error) => {
@@ -253,6 +254,7 @@ export class gridConstructor{
             const close_button = document.querySelector(".close-button");
             close_button.addEventListener("click", () => {
                 image_container.classList.add("closing");
+                close_button.classList.add("closing");
                 setTimeout(() => {
                     body.classList.remove("modal-open");
                     new_element.remove();

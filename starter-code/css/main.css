@@ -217,7 +217,7 @@ body {
   gap: 1.5vw;
 }
 .modal-window__content__image-flex {
-  min-width: 30%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -226,14 +226,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15vh;
+  gap: 1.5vh;
 }
 .modal-window__content__story__text {
   color: #7D7D7D;
   font-size: 1.5rem;
   font-weight: bold;
   text-align: left;
-  line-height: 2.8rem;
+  line-height: 4rem;
 }
 .modal-window__content__story__source {
   color: #7D7D7D;
@@ -427,6 +427,61 @@ body {
   overflow: hidden;
 }
 
+@media screen and (min-width: 2561px) {
+  html {
+    font-size: 95%;
+  }
+  .header__start-slideshow {
+    font-size: 3.5rem;
+  }
+  .image-description__name {
+    font-size: 3rem;
+  }
+  .image-description__author {
+    font-size: 2.7rem;
+  }
+  .modal-window__content__image-flex {
+    position: relative;
+    flex-direction: row;
+  }
+  .modal-window .image-details {
+    width: 72%;
+    background-color: #FFFFFF;
+    top: -2%;
+    left: 50%;
+    position: absolute;
+  }
+  .modal-window .modal-window__content__story__text {
+    font-size: 2.5rem;
+    line-height: 4.2rem;
+  }
+  .modal-window .modal-window__content__story__source {
+    font-size: 2.2rem;
+  }
+  .author-image {
+    align-self: flex-end;
+  }
+  .control-menu__leftRight__left,
+  .control-menu__leftRight__right {
+    transform: scale(2);
+    margin-left: 2rem;
+  }
+}
+@media screen and (max-width: 2560px) and (min-width: 1600px) {
+  .modal-window__content__image-flex {
+    position: relative;
+    flex-direction: row;
+  }
+  .image-details {
+    background-color: #FFFFFF;
+    top: -2%;
+    left: 50%;
+    position: absolute;
+  }
+  .author-image {
+    align-self: flex-end;
+  }
+}
 @media screen and (max-width: 1600px) and (min-width: 1280px) {
   html {
     font-size: 65%;
@@ -439,17 +494,15 @@ body {
   }
   .modal-window__content__image-flex {
     position: relative;
+    flex-direction: row;
   }
   .modal-window__content__story__text {
     font-size: 1.3rem;
   }
-  .modal-window__content__story {
-    gap: 4.5vh;
-  }
   .image-details {
     background-color: #FFFFFF;
     top: -2%;
-    left: -50%;
+    left: 50%;
     position: absolute;
   }
   .image-details__name {
@@ -458,26 +511,11 @@ body {
   .image-details__author {
     font-size: 2rem !important;
   }
-}
-@media screen and (max-width: 1600px) and (min-width: 1280px) and (max-width: 1024px) and (orientation: landscape) {
-  .modal-container .full-image img {
-    max-width: 50%;
-  }
-  .full-image {
-    display: block;
-    text-align: center;
-  }
-  .close-container {
-    text-align: center;
-  }
-}
-@media screen and (max-width: 1600px) and (min-width: 1280px) {
-  .gallery-image {
-    align-self: flex-start;
-  }
   .author-image {
-    position: absolute;
-    top: 88.5%;
+    align-self: flex-end;
+  }
+  .view-image__text {
+    font-size: 0.8rem;
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 769px) {
@@ -532,11 +570,11 @@ body {
     margin-bottom: 1rem;
   }
   .modal-window .image-details__name {
-    font-size: 2.1rem;
+    font-size: 1.2rem;
     line-height: 2.26rem;
   }
   .modal-window .image-details__author {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
   .author-image {
     align-self: center;
@@ -628,11 +666,11 @@ body {
     margin-bottom: 1rem;
   }
   .modal-window .image-details__name {
-    font-size: 2.1rem;
+    font-size: 1.1rem;
     line-height: 2.26rem;
   }
   .modal-window .image-details__author {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
   .author-image {
     align-self: center;
@@ -731,7 +769,7 @@ body {
     margin-bottom: 1rem;
   }
   .modal-window .image-details__name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2.26rem;
   }
   .modal-window .image-details__author {
@@ -784,7 +822,7 @@ body {
     font-size: 0.8rem;
   }
 }
-@media (max-width: 1024px) and (orientation: landscape) {
+@media screen and (max-width: 1024px) and (orientation: landscape) {
   .modal-container .full-image img {
     max-width: 35%;
   }

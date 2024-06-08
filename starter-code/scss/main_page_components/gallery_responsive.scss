@@ -1,3 +1,76 @@
+// Media queries for 4k monitor and further
+@media screen and (min-width: 2561px) {
+  html {
+    font-size: 95%;
+  }
+
+  .header__start-slideshow {
+    font-size: 3.5rem;
+  }
+
+  .image-description {
+
+    &__name {
+      font-size: 3rem;
+    }
+
+    &__author {
+      font-size: 2.7rem;
+    }
+  }
+
+  .modal-window__content__image-flex {
+    position: relative;
+    flex-direction: row;
+  }
+  .modal-window {
+    .image-details {
+      width: 72%;
+      background-color: $white;
+      top: -2%;
+      left: 50%;
+      position: absolute;
+    }
+    .modal-window__content__story__text {
+      font-size: 2.5rem;
+      line-height: 4.2rem;
+    }
+    .modal-window__content__story__source {
+      font-size: 2.2rem;
+    }
+  }
+    .author-image {
+      align-self: flex-end;
+
+  }
+  .control-menu__leftRight__left,
+  .control-menu__leftRight__right {
+    transform: scale(2);
+    margin-left: 2rem;
+  }
+}
+
+
+// Media queries for bigger laptops
+@media screen and (max-width: 2560px) and (min-width: 1600px) {
+  .modal-window__content__image-flex {
+    position: relative;
+    flex-direction: row;
+  }
+
+  .image-details {
+    background-color: $white;
+    top: -2%;
+    left: 50%;
+    position: absolute;
+  }
+
+  .author-image {
+    align-self: flex-end;
+  }
+}
+
+
 // Media queries for medium laptops
 @media screen and (max-width: 1600px) and (min-width: 1280px) {
   html {
@@ -17,20 +90,17 @@
 
   .modal-window__content__image-flex {
     position: relative;
+    flex-direction: row;
   }
 
   .modal-window__content__story__text {
     font-size: 1.3rem;
   }
 
-  .modal-window__content__story {
-    gap: 4.5vh;
-  }
-
   .image-details {
     background-color: $white;
     top: -2%;
-    left: -50%;
+    left: 50%;
     position: absolute;
     &__name {
       font-size: 3.5rem !important;
@@ -40,29 +110,16 @@
       font-size: 2rem !important;
     }
   }
-// Media queries for the image full mode in the mobile devices with orientation landscape mode
-
-@media (max-width: 1024px) and (orientation: landscape) {
-  .modal-container .full-image img {
-    max-width: 50%;
-  }
-
-  .full-image {
-    display: block;
-    text-align: center;
-  }
-  .close-container {
-    text-align: center;
-  }
-}
-
-  .gallery-image {
-    align-self: flex-start;
-  }
 
   .author-image {
-    position: absolute;
-    top: 88.5%;
+    align-self: flex-end;
+  }
+
+  .view-image {
+
+    &__text {
+      font-size: .8rem;
+    }
   }
 }
 
@@ -123,12 +180,12 @@
       gap: .2vh;
       margin-bottom: 1rem;
       &__name {
-        font-size: 2.1rem;
+        font-size: 1.2rem;
         line-height: 2.26rem;
       }
 
       &__author {
-        font-size: 1.5rem;
+        font-size: .9rem;
       }
     }
   }
@@ -252,12 +309,12 @@
       gap: .2vh;
       margin-bottom: 1rem;
       &__name {
-        font-size: 2.1rem;
+        font-size: 1.1rem;
         line-height: 2.26rem;
       }
 
       &__author {
-        font-size: 1.5rem;
+        font-size: .9rem;
       }
     }
   }
@@ -387,7 +444,7 @@
       gap: .2vh;
       margin-bottom: 1rem;
     &__name {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 2.26rem;
     }
 
@@ -467,7 +524,7 @@
 
 // Media queries for the image full mode in the mobile devices with orientation landscape mode
 
-@media (max-width: 1024px) and (orientation: landscape) {
+@media screen and (max-width: 1024px) and (orientation: landscape) {
   .modal-container .full-image img {
     max-width: 35%;
   }
