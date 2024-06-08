@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if(selected_image) {
             grid.loadShowCaseWindow(selected_image, gallery_element, header);
             const close_button = document.querySelector(".control-menu__close-button");
-            console.log(10);
             close_button.addEventListener("click", () => {
                 grid.closeModalWindow(header_slideshow_button, header, gallery_element);
                 setTimeout(() => {
