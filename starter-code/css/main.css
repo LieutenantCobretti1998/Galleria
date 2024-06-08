@@ -229,6 +229,7 @@ body {
   gap: 1.5vh;
 }
 .modal-window__content__story__text {
+  padding-top: 11rem;
   color: #7D7D7D;
   font-size: 1.5rem;
   font-weight: bold;
