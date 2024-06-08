@@ -32,6 +32,7 @@
       position: absolute;
     }
     .modal-window__content__story__text {
+      padding-top: 11rem;
       font-size: 2.5rem;
       line-height: 4.2rem;
     }
@@ -68,6 +69,10 @@
   .author-image {
     align-self: flex-end;
   }
+
+  .modal-window__content__story__text {
+    padding-top: 11rem;
+  }
 }
 
 
@@ -94,6 +99,7 @@
   }
 
   .modal-window__content__story__text {
+    padding-top: 11rem;
     font-size: 1.3rem;
   }
 

@@ -229,7 +229,6 @@ body {
   gap: 1.5vh;
 }
 .modal-window__content__story__text {
-  padding-top: 11rem;
   color: #7D7D7D;
   font-size: 1.5rem;
   font-weight: bold;
@@ -454,6 +453,7 @@ body {
     position: absolute;
   }
   .modal-window .modal-window__content__story__text {
+    padding-top: 11rem;
     font-size: 2.5rem;
     line-height: 4.2rem;
   }
@@ -483,6 +483,9 @@ body {
   .author-image {
     align-self: flex-end;
   }
+  .modal-window__content__story__text {
+    padding-top: 11rem;
+  }
 }
 @media screen and (max-width: 1600px) and (min-width: 1280px) {
   html {
@@ -499,6 +502,7 @@ body {
     flex-direction: row;
   }
   .modal-window__content__story__text {
+    padding-top: 11rem;
     font-size: 1.3rem;
   }
   .image-details {
