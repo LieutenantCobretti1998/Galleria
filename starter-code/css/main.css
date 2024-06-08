@@ -395,16 +395,17 @@ body {
 .modal .modal-container {
   margin: 4rem;
 }
-.modal .close-contnainer {
+.modal .close-container {
   width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+  text-align: center !important;
 }
 .modal .full-image {
   display: block;
+  text-align: center;
 }
 .modal .full-image img {
-  max-width: 100%;
+  max-width: 55%;
 }
 .modal .close-button {
   text-transform: uppercase;

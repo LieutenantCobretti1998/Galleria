@@ -16,16 +16,19 @@
     margin: 4rem;
   }
 
-  .close-contnainer {
+  .close-container {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    //display: flex;
+    //justify-content: flex-end;
+    display: block;
+    text-align: center !important;
   }
 
   .full-image {
     display: block;
+    text-align: center;
     & img {
-      max-width: 100%;
+      max-width: 55%;
     }
   }
 
