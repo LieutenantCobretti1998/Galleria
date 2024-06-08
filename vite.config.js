@@ -5,8 +5,17 @@ import { resolve } from 'path';
 const rootDir = resolve(__dirname, "starter-code");
 
 export default defineConfig({
-    root: "starter-code",  // This should be the directory, not the file
+    root: rootDir,  // This should be the directory, not the file
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg', '**/*.json'],
     server: {
-        open: '/',  // Opens the root of the server, usually index.html
+        open: 'index.html',  // Opens the root of the server, usually index.html
     },
+
+    build: {
+        outDir: resolve(rootDir, "dist"),
+        publicDir: resolve(rootDir, "public"),
+        rollupOptions: {
+            input: resolve(rootDir, "index.html"),
+        }
+    }
 });
