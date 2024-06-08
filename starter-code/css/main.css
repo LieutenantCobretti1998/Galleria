@@ -196,12 +196,12 @@ body {
 .image-description__name {
   text-align: left;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
 }
 .image-description__author {
   text-align: left;
   height: auto;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 .modal-window {
@@ -432,13 +432,13 @@ body {
     font-size: 95%;
   }
   .header__start-slideshow {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
   .image-description__name {
-    font-size: 3rem;
+    font-size: 1.4rem;
   }
   .image-description__author {
-    font-size: 2.7rem;
+    font-size: 1.2rem;
   }
   .modal-window__content__image-flex {
     position: relative;
