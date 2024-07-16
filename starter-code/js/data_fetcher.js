@@ -1,11 +1,11 @@
 // Init data fetcher here
 
 export class DataFetcher {
-    #json_file = "../data.json";
+    // #json_file = "../data.json";
 
     async fetchData() {
         try {
-            const response = await fetch(this.#json_file);
+            const response = await fetch("http://127.0.0.1:5000/get_images");
             if (!response.ok) {
                 throw new Error("Failed to fetch data. Please check you json file");
             }
