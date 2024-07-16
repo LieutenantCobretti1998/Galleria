@@ -1,14 +1,19 @@
 .gallery-container {
-  display: grid;
-  grid-template: repeat(10, 5vw) / repeat(4, 1fr);
-  grid-gap: 6.5vw;
-  //overflow: hidden;
+  //display: grid;
+  //grid-template: repeat(10, 5vw) / repeat(4, 1fr);
+  //grid-gap: 6.5vw;
+  ////overflow: hidden;
+  //margin: 2.5vw;
+  //height: auto;
+  //position: relative;
+  column-count: 4;
   margin: 2.5vw;
-  height: auto;
-  position: relative;
+  column-fill: balance;
+  column-gap: 40px;
 
 
   &__item {
+    margin-bottom: 40px;
     //animation: slideUp 20s linear 0s;
 
     & > figure {
@@ -25,7 +30,7 @@
     }
 
     & > figure:hover figcaption {
-      bottom: 1rem; /* Move inside the image when hovered */
+      bottom: 5%; /* Move inside the image when hovered */
     }
   }
 
@@ -33,7 +38,7 @@
     width: 100%;
     height: auto;
     cursor: pointer;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 

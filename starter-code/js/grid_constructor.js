@@ -18,7 +18,7 @@ export class gridConstructor{
             return {
                 id : index,
                 image_name: image_info.name,
-                image_photo: image_info.images.thumbnail,
+                image_photo: image_info.images.hero.large,
                 author: image_info.artist.name
             }
         })

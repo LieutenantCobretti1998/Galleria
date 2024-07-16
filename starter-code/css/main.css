@@ -88,12 +88,13 @@ body {
 }
 
 .gallery-container {
-  display: grid;
-  grid-template: repeat(10, 5vw)/repeat(4, 1fr);
-  grid-gap: 6.5vw;
+  column-count: 4;
   margin: 2.5vw;
-  height: auto;
-  position: relative;
+  column-fill: balance;
+  column-gap: 40px;
+}
+.gallery-container__item {
+  margin-bottom: 40px;
 }
 .gallery-container__item > figure {
   position: relative;
@@ -107,13 +108,13 @@ body {
   transition: bottom 0.3s ease-in-out; /* Smooth transition */
 }
 .gallery-container__item > figure:hover figcaption {
-  bottom: 1rem; /* Move inside the image when hovered */
+  bottom: 5%; /* Move inside the image when hovered */
 }
 .gallery-container__item > figure img {
   width: 100%;
   height: auto;
   cursor: pointer;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 #item-0 {
@@ -277,7 +278,7 @@ body {
 .art {
   position: relative;
   width: auto;
-  max-height: 70vh;
+  max-height: 600px;
   object-fit: contain;
 }
 
@@ -418,12 +419,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 .modal .full-image img {
-  max-width: 100%;
-  max-height: 100%;
+  max-height: 800px;
 }
 .modal .close-button {
   text-transform: uppercase;
