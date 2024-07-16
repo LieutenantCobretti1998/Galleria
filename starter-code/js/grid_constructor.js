@@ -60,7 +60,7 @@ export class gridConstructor{
                 modal_section.innerHTML = `
                 <div class="modal-window__content show">
                     <div class="gallery-image">
-                        <img class="art" src="" alt="">
+                        <img loading="lazy" class="art" src="" alt="">
                         <div class="image-details">
                             <h1 class="image-details__name"></h1>
                             <h2 class="image-details__author"></h2>

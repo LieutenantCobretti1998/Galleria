@@ -1,10 +1,10 @@
 .gallery-container {
   display: grid;
   grid-template: repeat(10, 5vw) / repeat(4, 1fr);
-  grid-gap: 1.1vw;
+  grid-gap: 6.5vw;
   //overflow: hidden;
   margin: 2.5vw;
-  height: 70vh;
+  height: auto;
   position: relative;
 
 
@@ -13,20 +13,27 @@
 
     & > figure {
       position: relative;
+      overflow: hidden;
     }
 
     & > figure figcaption {
       position: absolute;
-      bottom: 1rem;
-      left: 1rem;
+      bottom: -100%; /* Start from outside the image */
+      left: 2rem;
+      width: calc(100% - 4rem); /* Adjust width to fit within padding */
+      transition: bottom 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    & > figure:hover figcaption {
+      bottom: 1rem; /* Move inside the image when hovered */
     }
   }
 
   &__item > figure img {
-    width: 15vw;
+    width: 100%;
     height: auto;
     cursor: pointer;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 

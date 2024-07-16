@@ -44,7 +44,7 @@
   }
 
   .image-details {
-    width: 100%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     gap: 1.5vw;
@@ -169,7 +169,8 @@
 .view-image {
   cursor: pointer;
   position: absolute;
-  top: 0;
+  top: .5rem;
+  left: .5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
