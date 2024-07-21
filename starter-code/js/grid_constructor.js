@@ -33,10 +33,12 @@ export class gridConstructor{
             gallery_grid_item.innerHTML = `
                 <figure>
                      <img src="${image_info.image_photo}" alt="${image_info.image_name}" id="${image_info.id}">
-                     <figcaption class="image-description">
-                        <span class="image-description__name">${image_info.image_name}</span>
-                        <span class="image-description__author">${image_info.author}</span>
-                     </figcaption>
+                     <div>
+                         <figcaption class="image-description">
+                            <span class="image-description__name">${image_info.image_name}</span>
+                            <span class="image-description__author">${image_info.author}</span>
+                         </figcaption>
+                    </div>
                 </figure>    
             `
             gallery_element.appendChild(gallery_grid_item);
