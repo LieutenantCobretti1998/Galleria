@@ -256,7 +256,7 @@ body {
 }
 .modal-window__content__story__text {
   color: #7D7D7D;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: left;
   line-height: 4rem;
@@ -269,7 +269,6 @@ body {
   letter-spacing: 0.19rem;
 }
 .modal-window .image-details {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5vw;
@@ -469,10 +468,10 @@ body {
   .header__start-slideshow {
     font-size: 3.5rem;
   }
-  .image-description__name {
+  .image-description-overview__name {
     font-size: 3rem;
   }
-  .image-description__author {
+  .image-description-overview__author {
     font-size: 2.7rem;
   }
   .modal-window__content__image-flex {
@@ -480,21 +479,26 @@ body {
     flex-direction: row;
   }
   .modal-window .image-details {
-    width: 72%;
+    width: 600px;
     background-color: #FFFFFF;
-    top: -2%;
-    left: 50%;
+    top: -5%;
+    left: 60%;
     position: absolute;
+  }
+  .modal-window .image-details__name {
+    font-size: 3rem;
   }
   .modal-window .modal-window__content__story__text {
     font-size: 2.5rem;
-    line-height: 4.2rem;
+    line-height: 6rem;
   }
   .modal-window .modal-window__content__story__source {
     font-size: 2.2rem;
   }
   .author-image {
     align-self: flex-end;
+    width: 20vw;
+    height: 20vh;
   }
   .control-menu__leftRight__left,
   .control-menu__leftRight__right {
@@ -508,6 +512,7 @@ body {
     flex-direction: row;
   }
   .image-details {
+    width: 600px;
     background-color: #FFFFFF;
     top: -2%;
     left: 50%;
@@ -515,6 +520,8 @@ body {
   }
   .author-image {
     align-self: flex-end;
+    width: 20vw;
+    height: 20vh;
   }
 }
 @media screen and (max-width: 1600px) and (min-width: 1280px) {
@@ -538,6 +545,7 @@ body {
     background-color: #FFFFFF;
     top: -2%;
     left: 50%;
+    width: 600px;
     position: absolute;
   }
   .image-details__name {
@@ -548,9 +556,11 @@ body {
   }
   .author-image {
     align-self: flex-end;
+    width: 20vw;
+    height: 20vh;
   }
   .view-image__text {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 769px) {
@@ -619,8 +629,11 @@ body {
   .year {
     font-size: 1.6rem;
   }
+  .art {
+    width: 100%;
+  }
   .view-image__text {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   .progress-bar {
     margin: 3rem 0 0 1.7rem;
@@ -716,10 +729,10 @@ body {
     font-size: 1.4rem;
   }
   .art {
-    max-height: 50vh;
+    width: 100%;
   }
   .view-image__text {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .progress-bar {
     margin: 3rem 0 0 1.7rem;
@@ -753,12 +766,10 @@ body {
 }
 @media screen and (max-width: 599px) and (min-width: 320px) {
   html {
-    font-size: 80%;
+    font-size: 50%;
   }
   .gallery-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
+    column-count: 1;
   }
   .gallery-container__item > figure figcaption {
     bottom: 2rem;
@@ -779,7 +790,7 @@ body {
     font-size: 0.7rem;
   }
   .modal-window {
-    margin: 0;
+    display: block;
     overflow: auto;
   }
   .modal-window__content {
@@ -792,8 +803,8 @@ body {
     gap: 1.5vh;
   }
   .modal-window__content__story__text {
-    font-size: 1rem;
-    line-height: 2.1rem;
+    font-size: 1.2rem;
+    line-height: 30px;
   }
   .modal-window__content__image-flex {
     z-index: 1;
@@ -811,7 +822,11 @@ body {
     font-size: 0.8rem;
   }
   .art {
-    max-height: 40vh;
+    width: 100%;
+  }
+  .view-image {
+    top: 0;
+    left: 0;
   }
   .view-image__text {
     font-size: 1.2rem;
@@ -825,7 +840,7 @@ body {
     margin: 3rem 0 0 0.7rem;
   }
   .control-menu {
-    margin: 0.8rem 1rem 0 0.7rem;
+    margin: 0.8rem 1.7rem 0 1.7rem;
   }
   .control-menu__leftRight {
     gap: 2.5rem;
@@ -851,10 +866,10 @@ body {
     font-size: 0.9rem;
   }
   .modal-container .full-image img {
-    max-width: 100%;
+    width: 90vw;
   }
   .modal-container .close-button {
-    font-size: 0.8rem;
+    font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 1024px) and (orientation: landscape) {

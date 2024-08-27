@@ -8,7 +8,7 @@
     font-size: 3.5rem;
   }
 
-  .image-description {
+  .image-description-overview {
 
     &__name {
       font-size: 3rem;
@@ -25,15 +25,19 @@
   }
   .modal-window {
     .image-details {
-      width: 72%;
+      width: 600px;
       background-color: $white;
-      top: -2%;
-      left: 50%;
+      top: -5%;
+      left: 60%;
       position: absolute;
+
+      &__name {
+        font-size: 3rem;
+      }
     }
     .modal-window__content__story__text {
       font-size: 2.5rem;
-      line-height: 4.2rem;
+      line-height: 6rem;
     }
     .modal-window__content__story__source {
       font-size: 2.2rem;
@@ -41,6 +45,8 @@
   }
     .author-image {
       align-self: flex-end;
+      width: 20vw;
+      height: 20vh;
 
   }
   .control-menu__leftRight__left,
@@ -59,6 +65,7 @@
   }
 
   .image-details {
+    width: 600px;
     background-color: $white;
     top: -2%;
     left: 50%;
@@ -67,6 +74,8 @@
 
   .author-image {
     align-self: flex-end;
+    width: 20vw;
+    height: 20vh;
   }
 }
 
@@ -101,6 +110,7 @@
     background-color: $white;
     top: -2%;
     left: 50%;
+    width: 600px;
     position: absolute;
     &__name {
       font-size: 3.5rem !important;
@@ -113,12 +123,14 @@
 
   .author-image {
     align-self: flex-end;
+    width: 20vw;
+    height: 20vh;
   }
 
   .view-image {
 
     &__text {
-      font-size: .8rem;
+      font-size: 1.5rem;
     }
   }
 }
@@ -199,13 +211,14 @@
     font-size: 1.6rem;
   }
   .art {
+    width: 100%;
     //max-height: 60vh;
   }
 
     .view-image {
 
       &__text {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
 
@@ -328,13 +341,13 @@
     font-size: 1.4rem;
   }
   .art {
-    max-height: 50vh;
+    width: 100%;
   }
 
   .view-image {
 
     &__text {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -383,13 +396,11 @@
 // Media queries for mobile
 @media screen and (max-width: 599px) and (min-width: 320px) {
   html {
-    font-size: 80%;
+    font-size: 50%;
   }
 
   .gallery-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
+    column-count: 1;
 
     &__item {
       & > figure figcaption {
@@ -418,7 +429,7 @@
     font-size: .7rem;
   }
   .modal-window {
-    margin: 0;
+    display: block;
     overflow: auto;
     &__content {
       padding-left: .7rem;
@@ -430,8 +441,8 @@
         gap: 1.5vh;
 
         &__text {
-          font-size: 1rem;
-          line-height: 2.1rem;
+          font-size: 1.2rem;
+          line-height: 30px;
         }
       }
 
@@ -454,13 +465,15 @@
   }
   }
   .art {
-    max-height: 40vh;
+    width: 100%;
   }
 
   .year {
   }
 
   .view-image {
+    top: 0;
+    left: 0;
 
     &__text {
       font-size: 1.2rem;
@@ -478,7 +491,7 @@
   }
 
   .control-menu {
-    margin: .8rem 1rem 0 .7rem;
+    margin: .8rem 1.7rem 0 1.7rem;
 
     &__leftRight {
       gap: 2.5rem;
@@ -511,11 +524,11 @@
   .modal-container {
     .full-image {
       & img {
-        max-width: 100%;
+        width: 90vw;
       }
     }
     .close-button {
-      font-size: .8rem;
+      font-size: 2.5rem;
     }
 
   }

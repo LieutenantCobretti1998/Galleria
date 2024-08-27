@@ -5,7 +5,7 @@ export class DataFetcher {
 
     async fetchData() {
         try {
-            const response = await fetch("http://127.0.0.1:5000/get_images");
+            const response = await fetch("http://192.168.0.104:7000/get_images");
             if (!response.ok) {
                 throw new Error("Failed to fetch data. Please check you json file");
             }
