@@ -560,7 +560,7 @@ body {
     height: 20vh;
   }
   .view-image__text {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 769px) {
@@ -803,8 +803,8 @@ body {
     gap: 1.5vh;
   }
   .modal-window__content__story__text {
-    font-size: 1.2rem;
-    line-height: 30px;
+    font-size: 1.4rem;
+    line-height: 25px;
   }
   .modal-window__content__image-flex {
     z-index: 1;
